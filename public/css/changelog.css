@@ -1,0 +1,185 @@
+      /* Changelog Page Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f5f7ff;
+            overflow-x: hidden;
+        }
+
+        /* Main Content */
+        .main-content {
+            min-height: calc(100vh - 70px);
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            padding: 40px 0;
+        }
+
+        .changelog-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Changelog Content */
+        .changelog-content {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 10px;
+            padding-bottom: 30px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .coming-soon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            opacity: 0.8;
+        }
+
+        /* Update Preview Styles */
+        .update-preview {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-top: 30px;
+            overflow: hidden;
+            border: 2px solid var(--accent-color);
+        }
+
+        .update-header {
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .update-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .update-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .update-content {
+            padding: 30px;
+        }
+
+        .update-content h3 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .update-description {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .features-list h4 {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .features-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list li i {
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .coming-soon {
+                font-size: 2rem;
+            }
+
+            .update-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .update-content {
+                padding: 20px;
+            }
+
+            .update-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .features-list li {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .changelog-content {
+                padding: 20px;
+            }
+        }

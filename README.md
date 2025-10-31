@@ -34,3 +34,22 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+
+
+# Eduplex Landing Page
+
+## Setup
+1. Install Node.js (v18+)
+verify
+node -v  # should show v18.x or v20.x
+npm -v   # should show 9.x or 10.x
+2. Run `npm install`
+3. Run `npm run dev`
+4. Open http://localhost:3000
+
+## Notes
+- Existing course pages (e.g., `index-swe-44.html`) are in `/public`
+- All new UI is in `/src`

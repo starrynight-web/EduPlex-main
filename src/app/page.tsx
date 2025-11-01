@@ -97,35 +97,35 @@ export default function Home() {
   // Typewriter testimonials data
   const typewriterTestimonials = [
     {
-      image: '/images/sayma1.jpg',
+      image: '/images/sayma1.webp',
       audio: 'audio_1.mp3',
       text: 'As fellow developers and students, we\'re committed to maintaining Eduplex as a free, ad-free platform - because education should be accessible, not monetized.',
       name: 'Sayma Ferdousi',
       jobtitle: 'SWE Batch 45',
     },
     {
-      image: '/images/tafrin2.jpg',
+      image: '/images/tafrin2.webp',
       audio: 'audio_2.mp3',
       text: 'We built Eduplex to transform how DIU students access academic resources - creating a seamless, intuitive platform that bridges the gap between classroom learning and digital accessibility.',
       name: 'Tafrin',
       jobtitle: 'SWE Batch 44',
     },
     {
-      image: '/images/nay.jpg',
+      image: '/images/nay.webp',
       audio: 'audio_3.mp3',
       text: 'Our team faced the same academic challenges you do. Eduplex is our solution to the problems we wish someone had solved for us.',
       name: 'Mahtabul Al Nahiyan',
       jobtitle: 'SWE Batch 45',
     },
     { 
-      image: '/images/rodela.jpg',
+      image: '/images/rodela.webp',
       audio: 'audio_4.mp3',
       text: 'We\'re working on AI-powered study assistants and real-time collaboration tools to make Eduplex your complete academic companion.',
       name: 'Nabila Rahman Rodela',
       jobtitle: 'SWE Batch 46',
     },
     {
-      image: '/images/eashan.jpg',
+      image: '/images/eashan.webp',
       audio: 'audio_5.mp3',
       text: 'Every line of code we write is dedicated to making your academic journey smoother and more successful.',
       name: 'Golam Morshed Eashan',

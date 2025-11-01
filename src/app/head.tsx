@@ -1,5 +1,7 @@
 export default function Head() {
   const siteUrl = "https://eduplex-diu.unleft.space";
+  const ogImage = `${siteUrl}/og-image.jpg?v=${Date.now()}`; // forces new URL on every deployment
+
   return (
     <>
       <title>Eduplex - DIU Student Platform</title>
@@ -14,7 +16,7 @@ export default function Head() {
         property="og:description"
         content="Platform for DIU Students - SWE, NFE & English Departments."
       />
-      <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
+      <meta property="og:image" content={ogImage} />
       <meta property="og:url" content={siteUrl} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Eduplex" />
@@ -26,11 +28,12 @@ export default function Head() {
         name="twitter:description"
         content="Platform for DIU Students - SWE, NFE & English Departments."
       />
-      <meta name="twitter:image" content={`${siteUrl}/og-image.jpg`} />
+      <meta name="twitter:image" content={ogImage} />
 
       {/* Favicon (optional) */}
       <link rel="icon" href="/favicon.ico" />
     </>
   );
 }
+
 

@@ -96,35 +96,46 @@ window.location.href = `${baseUrl}/${department.toLowerCase()}/batch-${batch}/in
   ];
 
   // Typewriter testimonials data
-  const typewriterTestimonials = [
-    {
-      image: '/images/sayma.jpg',
-      audio: 'audio_1.mp3',
-      text: 'Eduplex has been instrumental in my academic journey. The resources and community support are exceptional.',
-      name: 'Sayma Ferdousi',
-      jobtitle: 'SWE Batch 45',
-    },
-    {
-      image: '/images/tafrin2.jpg',
-      audio: 'audio_2.mp3',
-      text: 'The platform made complex concepts easier to understand through well-structured slides and materials.',
-      name: 'Jane Smith',
-      jobtitle: 'NFE Batch 253',
-    },
-    { image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      audio: 'audio_1.mp3',
-      text: 'Eduplex has been instrumental in my academic journey. The resources and community support are exceptional.',
-      name: 'John Doe',
-      jobtitle: 'SWE Batch 44',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      audio: 'audio_2.mp3',
-      text: 'The platform made complex concepts easier to understand through well-structured slides and materials.',
-      name: 'Jane Smith',
-      jobtitle: 'NFE Batch 253',
-    },
-  ];
+  
+const typewriterTestimonials = [
+  {
+    image: '/images/sayma1.jpg',
+    audio: 'audio_1.mp3',
+    text: 'As fellow developers and students, we\'re committed to maintaining Eduplex as a free, ad-free platform - because education should be accessible, not monetized.',
+    name: 'Sayma Ferdousi',
+    jobtitle: 'SWE Batch 45',
+  },
+  {
+    image: '/images/tafrin2.jpg',
+    audio: 'audio_2.mp3',
+    text: 'We built Eduplex to transform how DIU students access academic resources - creating a seamless, intuitive platform that bridges the gap between classroom learning and digital accessibility.',
+    name: 'Tafrin',
+    jobtitle: 'SWE Batch 44',
+  },
+  {
+    image: '/images/nay.jpg',
+    audio: 'audio_3.mp3',
+    text: 'Our team faced the same academic challenges you do. Eduplex is our solution to the problems we wish someone had solved for us.',
+    name: 'Mahtabul Al Nahiyan',
+    jobtitle: 'SWE Batch 45',
+  },
+  { 
+    image: '/images/rodela.jpg',
+    audio: 'audio_4.mp3',
+    text: 'We\'re working on AI-powered study assistants and real-time collaboration tools to make Eduplex your complete academic companion.',
+    name: 'Nabila Rahman Rodela',
+    jobtitle: 'SWE Batch 46',
+  },
+  {
+    image: '/images/eashan.jpg',
+    audio: 'audio_5.mp3',
+    text: 'Every line of code we write is dedicated to making your academic journey smoother and more successful.',
+    name: 'Golam Morshed Eashan',
+    jobtitle: 'SWE Batch 45',
+  },
+];
+
+  
 
   // Glass testimonials data
   const glassTestimonials: Testimonial[] = [

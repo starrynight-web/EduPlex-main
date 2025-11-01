@@ -159,6 +159,7 @@ section {
   display: flex;
   align-items: center;
   gap: 24px;
+  margin-left: 16px; /* 👈 This pushes the whole group slightly right */
 }
 
 /* === MAIN NAV MENU === */

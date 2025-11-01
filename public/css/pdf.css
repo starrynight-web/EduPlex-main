@@ -1,0 +1,197 @@
+
+                .pdf-main-content {
+                    display: flex;
+                    gap: 20px;
+                    flex-wrap: wrap;
+                }
+
+              
+                
+
+                .pdf-page-container {
+                    max-width: 1200px;
+                    margin: 40px auto;
+                    padding: 25px;
+                    background: rgb(241, 241, 241);
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--box-shadow);
+                    position: relative;
+                }
+
+                /* Header Section */
+                .pdf-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 15px 20px;
+                    background: #ffffff;
+                    border-radius: var(--border-radius);
+                    border: 1px solid rgba(67, 97, 238, 0.1);
+                    margin-bottom: 20px;
+                }
+
+                .pdf-title {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    color: var(--secondary-color);
+                    margin: 0;
+                    padding-bottom: 15px;
+                }
+
+                .pdf-tags {
+                    display: flex;
+                    gap: 8px;
+                    flex-wrap: wrap;
+                }
+
+                .tag {
+                    padding: 4px 10px;
+                    background: var(--light-color);
+                    border: 1px solid rgba(67, 97, 238, 0.1);
+                    border-radius: var(--border-radius);
+                    font-size: 0.85rem;
+                    color: var(--dark-color);
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+
+                .tag i {
+                    font-size: 0.7rem;
+                }
+
+                .pdf-actions {
+                    background-color: rgba(37, 52, 53, 0.404);
+                    padding-top: 15px;
+                    padding-right: 20px;
+                    padding-bottom: 15px;
+                    position: relative;
+                    display: flex;
+                    gap: 10px;
+                    margin: auto;
+                    justify-content: flex-end;
+                }
+
+                .pdf-btn {
+                    padding: 6px 12px;
+                    background: var(--light-color);
+                    border: 1px solid rgba(67, 97, 238, 0.1);
+                    border-radius: var(--border-radius);
+                    font-size: 0.85rem;
+                    color: var(--dark-color);
+                    cursor: pointer;
+                    transition: var(--transition);
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+
+                .pdf-btn:hover {
+                    background: rgba(67, 97, 238, 0.05);
+                    transform: translateY(-1px);
+                    color: var(--primary-color);
+                }
+
+                /* Main Content Area */
+                .pdf-main-content {
+                    display: flex;
+                    gap: 20px;
+                    flex-wrap: wrap;
+                }
+
+                /* PDF Viewer */
+                .pdf-viewer-wrapper {
+                    flex: 1;
+                    min-width: 300px;
+                    background: white;
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--box-shadow);
+                    overflow: hidden;
+                    border: 1px solid rgba(67, 97, 238, 0.1);
+                }
+
+
+                .pdf-embed-wrapper {
+                    width: 100%;
+                    height: 65vh;
+                    min-height: 500px;
+                    overflow: auto;
+                    background: #f9fafc;
+                }
+
+                .pdf-embed-wrapper>object {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    border: none;
+                }
+
+                /* Responsive */
+                @media (max-width: 768px) {
+                    .pdf-page-container {
+                        padding: 15px;
+                        margin: 20px 10px;
+                    }
+
+                    .pdf-header {
+                        flex-direction: column;
+                        gap: 10px;
+                        padding: 10px 15px;
+                    }
+
+                    .pdf-tags {
+                        justify-content: center;
+                    }
+
+                    .pdf-main-content {
+                        flex-direction: column;
+                    }
+
+                    .pdf-viewer-wrapper,
+                    .quick-stats {
+                        width: 100%;
+                    }
+
+                    .promo-banner {
+                        flex-direction: column;
+                        text-align: center;
+                    }
+
+                    .banner-icon {
+                        margin: 0 auto;
+                    }
+
+                    .footer {
+                        flex-direction: column;
+                        gap: 20px;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .pdf-page-container {
+                        padding: 10px;
+                    }
+
+                    .pdf-title {
+                        font-size: 1.3rem;
+                    }
+
+                    .pdf-btn,
+                    .pdf-toolbar-btn {
+                        padding: 4px 8px;
+                        font-size: 0.8rem;
+                    }
+
+                    .promo-banner {
+                        padding: 15px;
+                    }
+
+                    .banner-title {
+                        font-size: 1.1rem;
+                    }
+
+                    .footer-copyright {
+                        text-align: center;
+                    }
+                }
+          

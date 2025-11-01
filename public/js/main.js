@@ -1,126 +1,181 @@
-// Sidebar Menu Functionality
-const hamburger = document.querySelector('.hamburger');
-const sidebar = document.getElementById('sidebar');
-const sidebarClose = document.getElementById('sidebar-close');
+// Modern Mobile Navigation Functionality
+class MobileNavigation {
+  constructor() {
+    this.hamburger = document.getElementById("hamburger-menu");
+    this.sidebar = document.getElementById("mobile-sidebar");
+    this.sidebarClose = document.getElementById("sidebar-close");
+    this.sidebarOverlay = document.getElementById("sidebar-overlay");
+    this.mobileNavItems = this.sidebar.querySelectorAll(".mobile-nav-item");
 
-// Open sidebar
-hamburger.addEventListener('click', () => {
-    hamburger.classList.add('active');
-    sidebar.classList.add('active');
-    document.body.style.overflow = 'hidden';
-});
+    this.init();
+  }
 
-// Close sidebar
-function closeSidebar() {
-    hamburger.classList.remove('active');
-    sidebar.classList.remove('active');
-    document.body.style.overflow = '';
-}
+  init() {
+    this.bindEvents();
+  }
 
-// Optional: close sidebar when clicking outside
-window.addEventListener('click', function (e) {
-    const sidebar = document.getElementById('sidebar');
-    const hamburger = document.querySelector('.hamburger');
-
-    if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-        sidebar.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+  bindEvents() {
+    // Hamburger click
+    this.hamburger.addEventListener("click", () => {
+      this.openSidebar();
     });
 
-sidebarClose.addEventListener('click', closeSidebar);
-
-// Submenu toggle functionality
-const menuParents = document.querySelectorAll('.menu-parent');
-
-menuParents.forEach(parent => {
-    parent.addEventListener('click', (e) => {
-        e.stopPropagation();
-        
-        // Close other open submenus at the same level
-        const currentSubmenu = parent.nextElementSibling;
-        const siblingSubmenus = parent.parentElement.querySelectorAll('.submenu');
-        
-        siblingSubmenus.forEach(submenu => {
-            if (submenu !== currentSubmenu) {
-                submenu.classList.remove('active');
-                const siblingParent = submenu.previousElementSibling;
-                if (siblingParent && siblingParent.classList.contains('menu-parent')) {
-                    siblingParent.classList.remove('active');
-                }
-            }
-        });
-        
-        // Toggle current submenu
-        if (currentSubmenu && currentSubmenu.classList.contains('submenu')) {
-            currentSubmenu.classList.toggle('active');
-            parent.classList.toggle('active');
-        }
+    // Close sidebar events
+    this.sidebarClose.addEventListener("click", () => {
+      this.closeSidebar();
     });
-});
 
-// Close sidebar on escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && sidebar.classList.contains('active')) {
-        closeSidebar();
-    }
-});
+    this.sidebarOverlay.addEventListener("click", () => {
+      this.closeSidebar();
+    });
 
+    // Close on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && this.sidebar.classList.contains("active")) {
+        this.closeSidebar();
+      }
+    });
 
-// Navigation logo click handler
-const navLogo = document.querySelector('.nav-logo a');
-if (navLogo) {
-    navLogo.addEventListener('click', function(e) {
+    // Mobile dropdown toggling
+    this.mobileNavItems.forEach((item) => {
+      const link = item.querySelector(".mobile-nav-link");
+      link.addEventListener("click", (e) => {
         e.preventDefault();
-        window.location.href = 'index.html';
+        this.toggleDropdown(item);
+        this.createRipple(e);
+      });
+
+      // Close dropdown when clicking on a link in the dropdown
+      const dropdownLinks = item.querySelectorAll(".mobile-dropdown a");
+      dropdownLinks.forEach((dropdownLink) => {
+        dropdownLink.addEventListener("click", (e) => {
+          this.createRipple(e);
+          setTimeout(() => {
+            this.closeSidebar();
+          }, 300);
+        });
+      });
     });
+
+    // Prevent body scroll when sidebar is open
+    this.preventBodyScroll();
+  }
+
+  toggleDropdown(item) {
+    // Close other dropdowns
+    this.mobileNavItems.forEach((otherItem) => {
+      if (otherItem !== item) {
+        otherItem.classList.remove("active");
+      }
+    });
+
+    // Toggle current dropdown
+    item.classList.toggle("active");
+  }
+
+  createRipple(event) {
+    const button = event.currentTarget;
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${
+      event.clientX - button.getBoundingClientRect().left - radius
+    }px`;
+    circle.style.top = `${
+      event.clientY - button.getBoundingClientRect().top - radius
+    }px`;
+    circle.classList.add("ripple");
+
+    const ripple = button.getElementsByClassName("ripple")[0];
+    if (ripple) {
+      ripple.remove();
+    }
+
+    button.appendChild(circle);
+  }
+
+  openSidebar() {
+    this.sidebar.classList.add("active");
+    this.sidebarOverlay.classList.add("active");
+    this.hamburger.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  closeSidebar() {
+    this.sidebar.classList.remove("active");
+    this.sidebarOverlay.classList.remove("active");
+    this.hamburger.classList.remove("active");
+    document.body.style.overflow = "";
+
+    // Close all dropdowns when closing sidebar
+    this.mobileNavItems.forEach((item) => {
+      item.classList.remove("active");
+    });
+  }
+
+  preventBodyScroll() {
+    this.sidebar.addEventListener(
+      "touchmove",
+      (e) => {
+        e.preventDefault();
+      },
+      { passive: false }
+    );
+  }
 }
 
-// Sidebar menu item click handlers
-document.addEventListener('DOMContentLoaded', function() {
-    // Handle sidebar menu item clicks
-    const menuItems = document.querySelectorAll('.menu-item');
-    
-    menuItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            // Check if the item has a link
-            const link = this.querySelector('a');
-            if (link) {
-                // If it's a link, let it handle the navigation naturally
-                return;
-            }
-            
-            // If it's not a link, check for menu text
-            const menuText = this.querySelector('.menu-text');
-            if (menuText) {
-                const text = menuText.textContent.trim();
-                
-                // Handle batch navigation for previous year exams
-                if (text === 'Batch-43') {
-                    e.preventDefault();
-                    window.location.href = 'batch-43.html';
-                }
-                else if (text === 'Batch-44') {
-                    e.preventDefault();
-                    window.location.href = 'batch-44.html';
-                }
-                // Handle semester navigation (keeping for backward compatibility)
-                else if (text === '1st Semester') {
-                    e.preventDefault();
-                    window.location.href = '1st-semester.html';
-                }
-                // Add more semester handlers as needed
-                else if (text === '2nd Semester') {
-                    e.preventDefault();
-                    // window.location.href = '2nd-semester.html';
-                }
-                else if (text === '3rd Semester') {
-                    e.preventDefault();
-                    // window.location.href = '3rd-semester.html';
-                }
-                // Continue for other semesters...
-            }
-        });
-    });
-});
+// Add ripple effect styles dynamically
+const rippleStyles = `
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
 
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.mobile-menu-item {
+  position: relative;
+  overflow: hidden;
+}
+`;
+
+// Inject ripple styles
+const styleSheet = document.createElement("style");
+styleSheet.textContent = rippleStyles;
+document.head.appendChild(styleSheet);
+
+// Initialize when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  new MobileNavigation();
+
+  // Navigation logo click handler
+  const navLogo = document.querySelector(".nav-logo a");
+  if (navLogo) {
+    navLogo.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = "index-swe-batch-45.html";
+    });
+  }
+
+  // Add subtle hover effect to desktop nav items
+  const desktopNavItems = document.querySelectorAll(".nav-item > a");
+  desktopNavItems.forEach((item) => {
+    item.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-2px)";
+    });
+    item.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0)";
+    });
+  });
+});

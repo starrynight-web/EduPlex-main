@@ -37,34 +37,93 @@ function type() {
 }
 setTimeout(type, 1000);
 
-// Batch Selection Dropdown
-const batchSelect = document.getElementById("batch-select");
-if (batchSelect) {
-  batchSelect.addEventListener("change", function () {
-    if (this.value === "45") {
-      window.location.href = "batch-45-1st-semester.html";
-    }
-  });
+// Batch-specific Exam Schedules
+const examSchedules = {
+  "batch-44": [
+    {
+      date: new Date("November 3, 2025 11:30:00").getTime(),
+      name: "Digital Electronics & Logic Design",
+      duration: 1.5,
+    },
+    {
+      date: new Date("November 5, 2025 11:30:00").getTime(),
+      name: "Data Structure",
+      duration: 1.5,
+    },
+    {
+      date: new Date("November 6, 2025 09:00:00").getTime(),
+      name: "Mathematics II",
+      duration: 1.5,
+    },
+  ],
+  "batch-45": [
+    {
+      date: new Date("November 2, 2025 11:30:00").getTime(),
+      name: "Software Requirement Specifications",
+      duration: 1.5,
+    },
+    {
+      date: new Date("November 4, 2025 11:30:00").getTime(),
+      name: "Structured Programming",
+      duration: 1.5,
+    },
+    {
+      date: new Date("November 6, 2025 09:00:00").getTime(),
+      name: "Mathematics I",
+      duration: 1.5,
+    },
+    {
+      date: new Date("November 9, 2025 09:00:00").getTime(),
+      name: "Physics I",
+      duration: 1.5,
+    },
+  ],
+  "batch-46": [
+    {
+      date: new Date("November 2, 2025 09:00:00").getTime(),
+      name: "English I",
+      duration: 1.5,
+    },
+    {
+      date: new Date("November 4, 2025 14:00:00").getTime(),
+      name: "Computer Fundamentals",
+      duration: 1.5,
+    },
+    {
+      date: new Date("November 6, 2025 14:00:00").getTime(),
+      name: "Software Engineering",
+      duration: 1.5,
+    },
+    {
+      date: new Date("November 9, 2025 14:00:00").getTime(),
+      name: "Bangladesh Studies",
+      duration: 1.5,
+    },
+  ],
+};
+
+// Detect current batch from URL
+function getCurrentBatch() {
+  const path = window.location.pathname;
+  if (path.includes("batch-44")) return "batch-44";
+  if (path.includes("batch-45")) return "batch-45";
+  if (path.includes("batch-46")) return "batch-46";
+  return "batch-44"; // default fallback
 }
 
-// Countdown Timer
-const examSchedule = [
-  new Date("October 29, 2025 09:00:00").getTime(),
-  new Date("October 31, 2025 09:00:00").getTime(),
-  new Date("November 02, 2025 09:00:00").getTime(),
-  new Date("November 04, 2025 09:00:00").getTime(),
-];
-
-function getNextExam() {
+function getNextExam(batch) {
   const now = new Date().getTime();
-  return examSchedule.find((date) => date > now) || null;
+  const schedule = examSchedules[batch];
+  return schedule.find((exam) => exam.date > now) || null;
 }
 
-function getCurrentExamIndex() {
+function getCurrentExamIndex(batch) {
   const now = new Date().getTime();
-  for (let i = 0; i < examSchedule.length; i++) {
-    const examStart = examSchedule[i];
-    const examEnd = examStart + 3 * 60 * 60 * 1000;
+  const schedule = examSchedules[batch];
+
+  for (let i = 0; i < schedule.length; i++) {
+    const examStart = schedule[i].date;
+    const examEnd = examStart + schedule[i].duration * 60 * 60 * 1000;
 
     if (now >= examStart && now <= examEnd) {
       return i;
@@ -74,33 +133,39 @@ function getCurrentExamIndex() {
 }
 
 function getExamStatus() {
+  const batch = getCurrentBatch();
   const now = new Date().getTime();
-  const nextExam = getNextExam();
-  const currentExamIndex = getCurrentExamIndex();
+  const nextExam = getNextExam(batch);
+  const currentExamIndex = getCurrentExamIndex(batch);
 
   if (currentExamIndex !== -1) {
-    const currentExamEnd = examSchedule[currentExamIndex] + 3 * 60 * 60 * 1000;
+    const currentExam = examSchedules[batch][currentExamIndex];
+    const currentExamEnd =
+      currentExam.date + currentExam.duration * 60 * 60 * 1000;
     const timeUntilEnd = currentExamEnd - now;
 
     return {
       type: "ongoing",
       examNumber: currentExamIndex + 1,
+      examName: currentExam.name,
       timeRemaining: timeUntilEnd,
-      message: `Exam ${currentExamIndex + 1} in progress`,
+      message: `${currentExam.name} exam in progress`,
     };
   } else if (nextExam) {
     return {
       type: "countdown",
-      examNumber: examSchedule.indexOf(nextExam) + 1,
-      timeRemaining: nextExam - now,
+      examNumber: examSchedules[batch].indexOf(nextExam) + 1,
+      examName: nextExam.name,
+      timeRemaining: nextExam.date - now,
       message: "Next exam countdown:",
     };
   } else {
     return {
       type: "finished",
       examNumber: null,
+      examName: null,
       timeRemaining: 0,
-      message: "All exams are finished!",
+      message: "All midterm exams are finished!",
     };
   }
 }
@@ -141,12 +206,22 @@ function updateCountdown() {
     .padStart(2, "0");
 
   if (status.type === "ongoing") {
-    subtitleElement.textContent = `Exam ${status.examNumber} ends in:`;
+    subtitleElement.textContent = `${status.examName} ends in:`;
   } else {
-    subtitleElement.textContent = `Exam ${status.examNumber} starts in:`;
+    subtitleElement.textContent = `${status.examName} starts in:`;
   }
 }
 
+// Update title to show "Midterm Exam Countdown"
+function updatePageTitle() {
+  const countdownTitle = document.querySelector(".countdown-title");
+  if (countdownTitle) {
+    countdownTitle.textContent = "Midterm Exam Countdown";
+  }
+}
+
+// Initialize countdown
+updatePageTitle();
 updateCountdown();
 setInterval(updateCountdown, 1000);
 

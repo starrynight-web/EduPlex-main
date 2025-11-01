@@ -102,6 +102,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="../../css/main.css" />
     <link rel="stylesheet" href="../../css/index-dept-batch-x.css" />
+    <link rel="stylesheet" href="../../css/mobile-sidebar.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -120,26 +121,124 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Navigation -->
+    <!-- Updated Navigation Bar -->
     <nav class="navbar">
       <div class="nav-container">
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+        <!-- Hamburger Menu (Mobile) -->
+        <div class="hamburger" id="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+
+        <!-- Logo (Left Side) -->
         <div class="nav-logo">
-          <a href="index.html"
-            ><img
-              src="../../images/eduplex-logo.png"
-              alt="EduPlex Official Logo"
-          /></a>
+          <a href="index-swe-batch-44.html">
+            <img src="../../images/eduplex-logo.png" alt="EduPlex Logo" />
+          </a>
         </div>
-        <div class="nav-icons">
-          <a href="changelog.html"><i class="fas fa-bell"></i></a>
+
+        <!-- Desktop Navigation Menu (Right Side) -->
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <!-- Home Dropdown -->
+            <li class="nav-item has-dropdown">
+              <a href="#">Home</a>
+              <ul class="dropdown">
+                <li><a href="http://eduplex-diu.unleft.space">Dashboard</a></li>
+              </ul>
+            </li>
+
+            <!-- SWE Dropdown -->
+            <li class="nav-item has-dropdown">
+              <a href="#">SWE</a>
+              <ul class="dropdown">
+                <li><a href="https://eduplex-diu.unleft.space/swe/batch-44/index-swe-batch-44.html">Batch-44</a></li>
+                <li><a href="https://eduplex-diu.unleft.space/swe/batch-45/index-swe-batch-45.html">Batch-45</a></li>
+                <li><a href="https://eduplex-diu.unleft.space/swe/batch-46/index-swe-batch-46.html">Batch-46</a></li>
+              </ul>
+            </li>
+
+            <!-- NFE Dropdown -->
+            <li class="nav-item has-dropdown">
+              <a href="#">NFE</a>
+              <ul class="dropdown">
+                <li><a href="https://eduplex-diu.unleft.space/nfe/batch-253/index-nfe-batch-253.html">Batch-253</a></li>
+              </ul>
+            </li>
+
+            <!-- English Dropdown -->
+            <li class="nav-item has-dropdown">
+              <a href="#">English</a>
+              <ul class="dropdown">
+                <li><a href="https://eduplex-diu.unleft.space/eng/batch-253/index-eng-batch-253.html">Batch-253</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
+
+    <!-- Mobile Sidebar Menu - Updated to match desktop navigation -->
+    <div class="mobile-sidebar" id="mobile-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="../../images/eduplex-logo.png" alt="EduPlex Logo" />
+        </div>
+        <button class="sidebar-close" id="sidebar-close">&times;</button>
+      </div>
+      
+      <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+          <!-- Home Dropdown -->
+          <li class="mobile-nav-item">
+            <a href="#" class="mobile-nav-link">
+              Home
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="mobile-dropdown">
+              <li><a href="http://eduplex-diu.unleft.space">Dashboard</a></li>
+            </ul>
+          </li>
+
+          <!-- SWE Dropdown -->
+          <li class="mobile-nav-item">
+            <a href="#" class="mobile-nav-link">
+              SWE
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="mobile-dropdown">
+              <li><a href="https://eduplex-diu.unleft.space/swe/batch-44/index-swe-batch-44.html">Batch-44</a></li>
+              <li><a href="https://eduplex-diu.unleft.space/swe/batch-45/index-swe-batch-45.html">Batch-45</a></li>
+              <li><a href="https://eduplex-diu.unleft.space/swe/batch-46/index-swe-batch-46.html">Batch-46</a></li>
+            </ul>
+          </li>
+
+          <!-- NFE Dropdown -->
+          <li class="mobile-nav-item">
+            <a href="#" class="mobile-nav-link">
+              NFE
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="mobile-dropdown">
+              <li><a href="https://eduplex-diu.unleft.space/nfe/batch-253/index-nfe-batch-253.html">Batch-253</a></li>
+            </ul>
+          </li>
+
+          <!-- English Dropdown -->
+          <li class="mobile-nav-item">
+            <a href="#" class="mobile-nav-link">
+              English
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="mobile-dropdown">
+              <li><a href="https://eduplex-diu.unleft.space/eng/batch-253/index-eng-batch-253.html">Batch-253</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
     
     <main>
@@ -175,7 +274,7 @@
           </div>
           <div class="hero-right">
             <div class="countdown-container">
-              <h3 class="countdown-title">Final Exam Countdown</h3>
+              <h3 class="countdown-title">Midterm Exam Countdown</h3>
               <p class="countdown-subtitle">
                 Prepare like a Pro. Your exam begins in...
               </p>
@@ -298,8 +397,6 @@
         <div class="container">
           <h2 class="section-title">Our Contributors</h2>
           <div class="contributors-grid">
-            
-
             <!-- Contributor 2 -->
             <div class="contributor-card">
               <div class="contributor-img">
@@ -312,8 +409,6 @@
               <h3 class="contributor-name">Tafrin</h3>
               <p class="contributor-role">44-J</p>
             </div>
-
-            
           </div>
         </div>
       </section>
@@ -529,97 +624,6 @@
           </div>
         </div>
       </section>
-      <!-- SEO Content Section -->
-      <!-- <section class="seo-content container">
-        <article>
-          <h2>What is EduPlex?</h2>
-          <p>
-            EduPlex is a student-focused academic tool designed to help
-            <strong
-              >Daffodil International University (DIU) SWE students</strong
-            >
-            manage their exam schedules, calculate GPA &amp; CGPA, and access
-            useful study resources in one place. Whether you are preparing for
-            midterms, finals, or just want to check your performance, EduPlex
-            makes the process faster and easier.
-          </p>
-
-          <h2>Features of EduPlex</h2>
-          <ul>
-            <li>
-              📅 <strong>Exam Countdown:</strong> Stay updated with real-time
-              countdown for your upcoming exams.
-            </li>
-            <li>
-              📊 <strong>CGPA Calculator:</strong> Instantly calculate your
-              per-subject GPA and semester CGPA using DIU's grading system.
-            </li>
-            <li>
-              📖 <strong>Study Materials:</strong> Download lecture notes,
-              guides, and reference PDFs for your semester.
-            </li>
-            <li>
-              ❓ <strong>Previous Year Questions:</strong> Access solved and
-              unsolved question banks for better preparation.
-            </li>
-            <li>
-              💡 <strong>Final Suggestions:</strong> Get curated exam
-              suggestions to focus on the most important topics.
-            </li>
-          </ul>
-
-          <h2>How EduPlex Helps DIU SWE Students</h2>
-          <p>
-            Every semester, DIU students struggle with managing assignments,
-            presentations, midterms, and final exams. EduPlex solves this by
-            giving you an <em>all-in-one academic assistant</em>. Instead of
-            searching through random Facebook groups or Google Drive links, you
-            can find everything—routine, CGPA calculator, questions, and
-            suggestions—right here.
-          </p>
-
-          <h2>Internal Links for Quick Navigation</h2>
-          <p>
-            ➡️ Learn more <a href="about.html">About EduPlex</a><br />
-            ➡️ Contact us via <a href="contact.html">Contact Page</a><br />
-            ➡️ Check
-            <a href="batch-43-1st-semester.html">Batch 43 Questions</a><br />
-            ➡️ Calculate your <a href="cgpa-calculator.html">CGPA Online</a
-            ><br />-->
-      <!-- ✅ Added CGPA Calculator Link -->
-      <!--  ➡️ Get your <a href="suggestion.html">Final Suggestions</a>
-          </p>
-        </article>
-      </section> -->
-
-      <!-- CGPA Calculator Section (your original code remains here) -->
-      <!-- ... existing calculator code ... -->
-
-      <!-- FAQ Section -->
-      <!-- <section class="faq-section container">
-        <h2>Frequently Asked Questions (FAQ)</h2>
-        <div class="faq-item">
-          <h3>Is EduPlex's CGPA calculator accurate?</h3>
-          <p>
-            ✅ Yes. Our calculator follows the official DIU SWE grading policy
-            for precise results.
-          </p>
-        </div>
-        <div class="faq-item">
-          <h3>Do I need to log in to use EduPlex?</h3>
-          <p>
-            No login required. EduPlex is free and open for all DIU SWE
-            students.
-          </p>
-        </div>
-        <div class="faq-item">
-          <h3>What resources are available?</h3>
-          <p>
-            You will get lecture notes, exam countdowns, previous year
-            questions, and final exam suggestions.
-          </p>
-        </div>
-      </section> -->
     </main>
 
  <!-- Footer -->
@@ -644,16 +648,11 @@
           <div class="footer-section">
             <h3>All Departments</h3>
             <ul>
-              <li>
-               
-              </li><h4>NFE</h4>
+              <li><h4>NFE</h4></li>
               <li><a href="https://eduplex-diu.unleft.space/nfe/batch-253/index-nfe-batch-253.html">Batch - 253</a></li>
-              <li>
-                </li><h4>ENG</h4>
+              <li><h4>ENG</h4></li>
               <li><a href="https://eduplex-diu.unleft.space/eng/batch-253/index-eng-batch-253.html">Batch - 253</a></li>
-              <li>
-                <h4>SWE</h4>
-              </li>
+              <li><h4>SWE</h4></li>
               <li><a href="https://eduplex-diu.unleft.space/swe/batch-44/index-swe-batch-44.html">Batch-44</a></li>
               <li><a href="https://eduplex-diu.unleft.space/swe/batch-45/index-swe-batch-45.html">Batch-45</a></li>
               <li><a href="https://eduplex-diu.unleft.space/swe/batch-46/index-swe-batch-46.html">Batch-46</a></li>

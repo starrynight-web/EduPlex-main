@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'Eduplex',
     images: [
       {
-        url: '/images/eduplex-logo.png', // You need to create this image
+        url: '/images/og-image.jpg', // You need to create this image
         width: 1200,
         height: 630,
         alt: 'Eduplex - DIU Student Platform',

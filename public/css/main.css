@@ -94,7 +94,9 @@ section {
   color: white;
 }
 
-/* === NAVBAR STYLES === */
+/* Add this to your existing main.css file */
+
+/* Enhanced Navbar Styles */
 .navbar {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
@@ -134,40 +136,16 @@ section {
   transform: scale(1.03);
 }
 
-/* Hamburger Menu (Mobile) */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 8px;
-  margin-right: 10px;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: var(--dark-color);
-  margin: 3px 0;
-  transition: var(--transition);
-  border-radius: 2px;
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+/* Right side container for nav menu */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 /* Desktop Navigation Menu */
 .nav-menu {
   display: flex;
-  align-items: center;
 }
 
 .nav-list {
@@ -246,7 +224,7 @@ section {
   color: var(--primary-color);
 }
 
-/* Mobile Sidebar Styles - Matching Desktop Navigation */
+/* Mobile Sidebar Styles */
 .mobile-sidebar {
   position: fixed;
   top: 0;
@@ -407,30 +385,54 @@ section {
   border-bottom: none;
 }
 
-/* Ripple effect for mobile menu items */
-.mobile-nav-link {
-  position: relative;
-  overflow: hidden;
+/* Hamburger Menu (Mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  margin-right: 10px;
 }
 
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  transform: scale(0);
-  animation: ripple-animation 0.6s linear;
-  pointer-events: none;
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--dark-color);
+  margin: 3px 0;
+  transition: var(--transition);
+  border-radius: 2px;
 }
 
-@keyframes ripple-animation {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Responsive adjustments */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-container {
+    padding: 0 15px;
+  }
+
+  .nav-logo img {
+    max-height: 36px;
+  }
+
   .mobile-sidebar {
     width: 280px;
     left: -280px;
@@ -706,4 +708,9 @@ footer {
     padding-top: 1.5rem;
     font-size: 0.8rem;
   }
+}
+
+.back-button-container {
+    display: flex;
+    justify-content: center;
 }

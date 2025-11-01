@@ -11,34 +11,33 @@
 </head>
 
 <body>
- <!-- Navigation Bar -->
+<!-- Updated Navigation Bar -->
 <nav class="navbar">
   <div class="nav-container">
-    <!-- Hamburger (left) -->
-    <div class="hamburger">
+    <!-- Hamburger Menu (Mobile) -->
+    <div class="hamburger" id="hamburger-menu">
       <span></span>
       <span></span>
       <span></span>
     </div>
 
-    <!-- Centered Logo -->
+    <!-- Logo (Left Side) -->
     <div class="nav-logo">
-      <a href="index-swe-batch-44.html">
-        <img src="../../images/eduplex-logo.png" alt="eduplexlogo" />
+      <a href="index-swe-batch-45.html">
+        <img src="../../images/eduplex-logo.png" alt="EduPlex Logo" />
       </a>
     </div>
 
-  <!-- Right Side: Nav Menu + Bell -->
-    <div class="nav-right">
-      <ul class="nav-menu">
+    <!-- Desktop Navigation Menu (Right Side) -->
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-list">
         <!-- Home Dropdown -->
         <li class="nav-item has-dropdown">
           <a href="#">Home</a>
           <ul class="dropdown">
             <li><a href="http://eduplex-diu.unleft.space">Dashboard</a></li>
-            
           </ul>
-        </li>
+        </li>
 
         <!-- SWE Dropdown -->
         <li class="nav-item has-dropdown">
@@ -55,7 +54,6 @@
           <a href="#">NFE</a>
           <ul class="dropdown">
             <li><a href="https://eduplex-diu.unleft.space/nfe/batch-253/index-nfe-batch-253.html">Batch-253</a></li>
-           
           </ul>
         </li>
 
@@ -64,53 +62,73 @@
           <a href="#">English</a>
           <ul class="dropdown">
             <li><a href="https://eduplex-diu.unleft.space/eng/batch-253/index-eng-batch-253.html">Batch-253</a></li>
-            
           </ul>
         </li>
       </ul>
-
-      <!-- Bell Icon -->
-      
     </div>
   </div>
 </nav>
 
-
-
-  Sidebar Menu
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <button class="sidebar-close" id="sidebar-close">&times;</button>
+<!-- Mobile Sidebar Menu -->
+<div class="mobile-sidebar" id="mobile-sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <img src="../../images/eduplex-logo.png" alt="EduPlex Logo" />
     </div>
-    <div class="sidebar-content">
-      <div class="menu-section">
-        <div class="menu-item menu-parent">
-          <span class="menu-text">Study Materials</span>
-          <span class="menu-arrow">▼</span>
-        </div>
-        <div class="submenu">
-          <div class="menu-item">
-            <a href="batch-45-1st-semester.html" class="menu-text">Batch-45</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-section">
-        <div class="menu-item menu-parent">
-          <span class="menu-text">Questions & answers of previous year exams</span>
-          <span class="menu-arrow">▼</span>
-        </div>
-        <div class="submenu">
-          <div class="menu-item">
-            <a href="batch-43-1st-semester.html" class="menu-text">Batch-43</a>
-          </div>
-          <div class="menu-item">
-            <a href="batch-44-1st-semester.html" class="menu-text">Batch-44</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <button class="sidebar-close" id="sidebar-close">&times;</button>
   </div>
+  
+  <nav class="mobile-nav">
+    <ul class="mobile-nav-list">
+      <!-- Home Dropdown -->
+      <li class="mobile-nav-item">
+        <a href="#" class="mobile-nav-link">
+          Home
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="mobile-dropdown">
+          <li><a href="http://eduplex-diu.unleft.space">Dashboard</a></li>
+        </ul>
+      </li>
+
+      <!-- SWE Dropdown -->
+      <li class="mobile-nav-item">
+        <a href="#" class="mobile-nav-link">
+          SWE
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="mobile-dropdown">
+          <li><a href="https://eduplex-diu.unleft.space/swe/batch-44/index-swe-batch-44.html">Batch-44</a></li>
+          <li><a href="https://eduplex-diu.unleft.space/swe/batch-45/index-swe-batch-45.html">Batch-45</a></li>
+          <li><a href="https://eduplex-diu.unleft.space/swe/batch-46/index-swe-batch-46.html">Batch-46</a></li>
+        </ul>
+      </li>
+
+      <!-- NFE Dropdown -->
+      <li class="mobile-nav-item">
+        <a href="#" class="mobile-nav-link">
+          NFE
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="mobile-dropdown">
+          <li><a href="https://eduplex-diu.unleft.space/nfe/batch-253/index-nfe-batch-253.html">Batch-253</a></li>
+        </ul>
+      </li>
+
+      <!-- English Dropdown -->
+      <li class="mobile-nav-item">
+        <a href="#" class="mobile-nav-link">
+          English
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="mobile-dropdown">
+          <li><a href="https://eduplex-diu.unleft.space/eng/batch-253/index-eng-batch-253.html">Batch-253</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
 
   <!-- Main Content -->
   <main class="main-content">
@@ -395,7 +413,7 @@
     </div>
   </footer>
   <script src="../../js/batch-45-1st-semester.js"></script>
-  <script src="js/main.js"></script>
+  <script src="../../js/main.js"></script>
 </body>
 
 </html>

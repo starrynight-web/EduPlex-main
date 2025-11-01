@@ -1,11 +1,13 @@
-// Modern Mobile Navigation Functionality
+// Enhanced Mobile Navigation Functionality
 class MobileNavigation {
   constructor() {
     this.hamburger = document.getElementById("hamburger-menu");
     this.sidebar = document.getElementById("mobile-sidebar");
     this.sidebarClose = document.getElementById("sidebar-close");
     this.sidebarOverlay = document.getElementById("sidebar-overlay");
-    this.mobileNavItems = this.sidebar.querySelectorAll(".mobile-nav-item");
+    this.mobileNavItems = this.sidebar
+      ? this.sidebar.querySelectorAll(".mobile-nav-item")
+      : [];
 
     this.init();
   }
@@ -16,22 +18,32 @@ class MobileNavigation {
 
   bindEvents() {
     // Hamburger click
-    this.hamburger.addEventListener("click", () => {
-      this.openSidebar();
-    });
+    if (this.hamburger) {
+      this.hamburger.addEventListener("click", () => {
+        this.openSidebar();
+      });
+    }
 
     // Close sidebar events
-    this.sidebarClose.addEventListener("click", () => {
-      this.closeSidebar();
-    });
+    if (this.sidebarClose) {
+      this.sidebarClose.addEventListener("click", () => {
+        this.closeSidebar();
+      });
+    }
 
-    this.sidebarOverlay.addEventListener("click", () => {
-      this.closeSidebar();
-    });
+    if (this.sidebarOverlay) {
+      this.sidebarOverlay.addEventListener("click", () => {
+        this.closeSidebar();
+      });
+    }
 
     // Close on escape key
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && this.sidebar.classList.contains("active")) {
+      if (
+        e.key === "Escape" &&
+        this.sidebar &&
+        this.sidebar.classList.contains("active")
+      ) {
         this.closeSidebar();
       }
     });
@@ -39,22 +51,24 @@ class MobileNavigation {
     // Mobile dropdown toggling
     this.mobileNavItems.forEach((item) => {
       const link = item.querySelector(".mobile-nav-link");
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        this.toggleDropdown(item);
-        this.createRipple(e);
-      });
-
-      // Close dropdown when clicking on a link in the dropdown
-      const dropdownLinks = item.querySelectorAll(".mobile-dropdown a");
-      dropdownLinks.forEach((dropdownLink) => {
-        dropdownLink.addEventListener("click", (e) => {
+      if (link) {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          this.toggleDropdown(item);
           this.createRipple(e);
-          setTimeout(() => {
-            this.closeSidebar();
-          }, 300);
         });
-      });
+
+        // Close dropdown when clicking on a link in the dropdown
+        const dropdownLinks = item.querySelectorAll(".mobile-dropdown a");
+        dropdownLinks.forEach((dropdownLink) => {
+          dropdownLink.addEventListener("click", (e) => {
+            this.createRipple(e);
+            setTimeout(() => {
+              this.closeSidebar();
+            }, 300);
+          });
+        });
+      }
     });
 
     // Prevent body scroll when sidebar is open
@@ -97,32 +111,38 @@ class MobileNavigation {
   }
 
   openSidebar() {
-    this.sidebar.classList.add("active");
-    this.sidebarOverlay.classList.add("active");
-    this.hamburger.classList.add("active");
-    document.body.style.overflow = "hidden";
+    if (this.sidebar) {
+      this.sidebar.classList.add("active");
+      this.sidebarOverlay.classList.add("active");
+      this.hamburger.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
   }
 
   closeSidebar() {
-    this.sidebar.classList.remove("active");
-    this.sidebarOverlay.classList.remove("active");
-    this.hamburger.classList.remove("active");
-    document.body.style.overflow = "";
+    if (this.sidebar) {
+      this.sidebar.classList.remove("active");
+      this.sidebarOverlay.classList.remove("active");
+      this.hamburger.classList.remove("active");
+      document.body.style.overflow = "";
 
-    // Close all dropdowns when closing sidebar
-    this.mobileNavItems.forEach((item) => {
-      item.classList.remove("active");
-    });
+      // Close all dropdowns when closing sidebar
+      this.mobileNavItems.forEach((item) => {
+        item.classList.remove("active");
+      });
+    }
   }
 
   preventBodyScroll() {
-    this.sidebar.addEventListener(
-      "touchmove",
-      (e) => {
-        e.preventDefault();
-      },
-      { passive: false }
-    );
+    if (this.sidebar) {
+      this.sidebar.addEventListener(
+        "touchmove",
+        (e) => {
+          e.preventDefault();
+        },
+        { passive: false }
+      );
+    }
   }
 }
 
@@ -144,7 +164,7 @@ const rippleStyles = `
   }
 }
 
-.mobile-menu-item {
+.mobile-nav-link {
   position: relative;
   overflow: hidden;
 }
@@ -164,7 +184,19 @@ document.addEventListener("DOMContentLoaded", () => {
   if (navLogo) {
     navLogo.addEventListener("click", function (e) {
       e.preventDefault();
-      window.location.href = "index-swe-batch-45.html";
+      // Get the correct index page based on current page
+      const currentPath = window.location.pathname;
+      let indexPage = "index-swe-batch-45.html";
+
+      if (currentPath.includes("batch-44")) {
+        indexPage = "index-swe-batch-44.html";
+      } else if (currentPath.includes("batch-45")) {
+        indexPage = "index-swe-batch-45.html";
+      } else if (currentPath.includes("batch-46")) {
+        indexPage = "index-swe-batch-46.html";
+      }
+
+      window.location.href = indexPage;
     });
   }
 

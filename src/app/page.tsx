@@ -96,8 +96,15 @@ export default function Home() {
 
   // Typewriter testimonials data
   const typewriterTestimonials = [
+     {
+      image: '/images/tafrin2.webp',
+      audio: 'audio_1.mp3',
+      text: 'As fellow developers and students, we\'re committed to maintaining Eduplex as a free, ad-free platform - because education should be accessible, not monetized.',
+      name: 'Eduplex',
+      jobtitle: 'Your Platefrom',
+    },
     {
-      image: '/images/sayma45.webp',
+      image: '/images/sayma4.webp',
       audio: 'audio_1.mp3',
       text: 'As fellow developers and students, we\'re committed to maintaining Eduplex as a free, ad-free platform - because education should be accessible, not monetized.',
       name: 'Sayma Ferdousi',

@@ -103,65 +103,174 @@
   </head>
 
   <body>
- <!-- Navigation Bar -->
-<nav class="navbar">
-  <div class="nav-container">
-    <!-- Hamburger (left) -->
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+ <!-- Updated Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <!-- Hamburger Menu (Mobile) -->
+        <div class="hamburger" id="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <!-- Logo (Left Side) -->
+        <div class="nav-logo">
+          <a href="index-swe-batch-45.html">
+            <img src="../../images/eduplex-logo.png" alt="EduPlex Logo" />
+          </a>
+        </div>
+
+        <!-- Desktop Navigation Menu (Right Side) -->
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <!-- Home Dropdown -->
+            <li class="nav-item has-dropdown">
+              <a href="#">Home</a>
+              <ul class="dropdown">
+                <li><a href="http://eduplex-diu.unleft.space">Dashboard</a></li>
+              </ul>
+            </li>
+
+            <!-- SWE Dropdown -->
+            <li class="nav-item has-dropdown">
+              <a href="#">SWE</a>
+              <ul class="dropdown">
+                <li>
+                  <a
+                    href="https://eduplex-diu.unleft.space/swe/batch-44/index-swe-batch-44.html"
+                    >Batch-44</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://eduplex-diu.unleft.space/swe/batch-45/index-swe-batch-45.html"
+                    >Batch-45</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://eduplex-diu.unleft.space/swe/batch-46/index-swe-batch-46.html"
+                    >Batch-46</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- NFE Dropdown -->
+            <li class="nav-item has-dropdown">
+              <a href="#">NFE</a>
+              <ul class="dropdown">
+                <li>
+                  <a
+                    href="https://eduplex-diu.unleft.space/nfe/batch-253/index-nfe-batch-253.html"
+                    >Batch-253</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- English Dropdown -->
+            <li class="nav-item has-dropdown">
+              <a href="#">English</a>
+              <ul class="dropdown">
+                <li>
+                  <a
+                    href="https://eduplex-diu.unleft.space/eng/batch-253/index-eng-batch-253.html"
+                    >Batch-253</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Sidebar Menu -->
+    <div class="mobile-sidebar" id="mobile-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="../../images/eduplex-logo.png" alt="EduPlex Logo" />
+        </div>
+        <button class="sidebar-close" id="sidebar-close">&times;</button>
+      </div>
+
+      <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+          <!-- Home Dropdown -->
+          <li class="mobile-nav-item">
+            <a href="#" class="mobile-nav-link">
+              Home
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="mobile-dropdown">
+              <li><a href="http://eduplex-diu.unleft.space">Dashboard</a></li>
+            </ul>
+          </li>
+
+          <!-- SWE Dropdown -->
+          <li class="mobile-nav-item">
+            <a href="#" class="mobile-nav-link">
+              SWE
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="mobile-dropdown">
+              <li>
+                <a
+                  href="https://eduplex-diu.unleft.space/swe/batch-44/index-swe-batch-44.html"
+                  >Batch-44</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://eduplex-diu.unleft.space/swe/batch-45/index-swe-batch-45.html"
+                  >Batch-45</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://eduplex-diu.unleft.space/swe/batch-46/index-swe-batch-46.html"
+                  >Batch-46</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- NFE Dropdown -->
+          <li class="mobile-nav-item">
+            <a href="#" class="mobile-nav-link">
+              NFE
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="mobile-dropdown">
+              <li>
+                <a
+                  href="https://eduplex-diu.unleft.space/nfe/batch-253/index-nfe-batch-253.html"
+                  >Batch-253</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- English Dropdown -->
+          <li class="mobile-nav-item">
+            <a href="#" class="mobile-nav-link">
+              English
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="mobile-dropdown">
+              <li>
+                <a
+                  href="https://eduplex-diu.unleft.space/eng/batch-253/index-eng-batch-253.html"
+                  >Batch-253</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </div>
-
-    <!-- Centered Logo -->
-    <div class="nav-logo">
-      <a href="index-swe-batch-44.html">
-        <img src="../../images/eduplex-logo.png" alt="eduplexlogo" />
-      </a>
-    </div>
-
-  <!-- Right Side: Nav Menu + Bell -->
-    <div class="nav-right">
-      <ul class="nav-menu">
-        <!-- Home Dropdown -->
-        <li class="nav-item has-dropdown">
-          <a href="#">Home</a>
-          <ul class="dropdown">
-            <li><a href="http://eduplex-diu.unleft.space">Dashboard</a></li>
-            
-          </ul>
-        </li>
-
-        <!-- SWE Dropdown -->
-        <li class="nav-item has-dropdown">
-          <a href="#">SWE</a>
-          <ul class="dropdown">
-            <li><a href="https://eduplex-diu.unleft.space/swe/batch-44/index-swe-batch-44.html">Batch-44</a></li>
-            <li><a href="https://eduplex-diu.unleft.space/swe/batch-45/index-swe-batch-45.html">Batch-45</a></li>
-            <li><a href="https://eduplex-diu.unleft.space/swe/batch-46/index-swe-batch-46.html">Batch-46</a></li>
-          </ul>
-        </li>
-
-        <!-- NFE Dropdown -->
-        <li class="nav-item has-dropdown">
-          <a href="#">NFE</a>
-          <ul class="dropdown">
-            <li><a href="https://eduplex-diu.unleft.space/nfe/batch-253/index-nfe-batch-253.html">Batch-253</a></li>
-           
-          </ul>
-        </li>
-
-        <!-- English Dropdown -->
-        <li class="nav-item has-dropdown">
-          <a href="#">English</a>
-          <ul class="dropdown">
-            <li><a href="https://eduplex-diu.unleft.space/eng/batch-253/index-eng-batch-253.html">Batch-253</a></li>
-            
-          </ul>
-        </li>
-      </ul>
-
-      <!-- Bell Icon -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
       
     </div>
   </div>
@@ -175,95 +284,40 @@
         <section class="subjects-section">
           <h1 class="section-title">Final Suggestions</h1>
           <div class="subjects-grid">
-            <!-- Introduction to Software -->
-            <div class="subject-archive-container">
-              <div class="subject-header">
-                <h3 class="subject-title">
-                 Structured Programming
-                </h3>
-              </div>
-              <div class="archive-content">
-                
-               <div class="exam-type">
-                  <h4 class="exam-type-title">Mid Exam Suggestions</h4>
-                  <div class="class-item">
-<h1>Comming soon</h1>
-                    
-               <!--     <ul class="questions-list">
-                      <li>
-                        <strong>Theory</strong> -
-                        <ol>
-                          <li>
-                            <strong>Use Case Diagram</strong> - Identify actors
-                            &amp; use cases, show relations.
-                          </li>
-                          <li>
-                            <strong>Use Case Description</strong> - Describe one
-                            use case (name, actors, pre/post, steps).
-                          </li>
-                          <li>
-                            <strong>Risk Analysis</strong> - Classify risks,
-                            identify from scenario.
-                          </li>
-                          <li>
-                            <strong>Software Testing</strong> - Types (Unit,
-                            Integration, System, Acceptance), Black-box vs
-                            White-box, Functional vs Non-functional.
-                          </li>
-                          <li><strong>Project management</strong></li>
-                        </ol>
-                      </li>
-                      <li>
-                        <strong>Mathematics</strong> -
-                        <ol>
-                          <li>
-                            <strong>Scheduling & Management</strong> - CPM,
-                            paths, ES/EF, LS/LF.
-                          </li>
-                          <li>
-                            <strong>Software Testing</strong> - Cyclomatic
-                            Complexity(math).
-                          </li>
-                          <li>
-                            <strong>Cost Estimation</strong> - COCOMO, LoC,
-                            effort, EV.
-                          </li>
-                        </ol>
-                      </li>
-                    </ul>
-                    <h3 class="class-name">
-                      Special thanks to:
-                      <ol>
-                        <li style="list-style: none">
-                          <strong>Md. Zakaria Hosan Zibon</strong> - (ID:
-                          252-35-244).
-                        </li>
-                        <li style="list-style: none">
-                          <strong>Rohan Sarkar</strong> - (Section-D-CR) for
-                          sharing this Special Notes.
-                        </li>
-                      </ol>
-                    </h3>
-                    <br />
-                    <a
-                      href="/pdf/swe.pdf"
-                      download
-                      id="downloadBtn"
-                      class="pdf-link"
-                      >Download PDF Notes</a
-                    ><span id="downloadStatus" style="margin-left: 10px"></span>
-                    <br /><a
-                      href="/pdf/special_note.pdf"
-                      download
-                      id="downloadBtn"
-                      class="pdf-link"
-                      >Download Special Notes</a
-                    ><span id="downloadStatus" style="margin-left: 10px"></span>-->
-                  </div>
-                </div>
-              </div>
-            </div>
              <!-- Software Requirments & Analysis -->
+<div class="subject-archive-container">
+  <div class="subject-header">
+    <h3 class="subject-title">
+     Structure Programming
+    </h3>
+  </div>
+  <div class="archive-content">
+    
+   <div class="exam-type">
+      <h4 class="exam-type-title">Mid Exam Suggestions</h4>
+    <center> <h5 class="exam-type-title">"Understand and Practice fall-2024 , spring-2025 , summer-2025  questions at least 3 times to gain 20 marks"- Afrin Ava mam (sec-M)</h5></center> 
+      <div class="class-item">
+        <ul class="questions-list">
+          <li>
+            <strong>Important Topics:</strong>
+            <ol>
+              <li>Practice 42,43 and 44 batch questions</li>
+              <li>Conditionals</li>
+              <li>Loops</li>
+              <li>Switch</li>
+              <li>Increment- decrement calculation in output</li>
+              <li>Error correction</li>
+            </ol>
+          </li>
+        </ul>
+        <div class="exam-tips">
+          <p><strong>Exam Focus:</strong> Pay special attention to scenario-based problems and ensure you understand the concepts covered in slides 2-6 thoroughly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+             <!--  -->
 <div class="subject-archive-container">
   <div class="subject-header">
     <h3 class="subject-title">
@@ -274,6 +328,7 @@
     
    <div class="exam-type">
       <h4 class="exam-type-title">Mid Exam Suggestions</h4>
+   
       <div class="class-item">
         <ul class="questions-list">
           <li>

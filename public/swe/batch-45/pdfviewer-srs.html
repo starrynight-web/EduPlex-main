@@ -379,15 +379,13 @@
     <script src="js/batch-45-1st-semester.js"></script>
     <script src="../../js/main.js"></script>
     <script>
-    function downloadPDF() {
-      const url = "pdf/bns_sug.pdf";
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = "Mathematic-II-(SWE)-Mid.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
+function downloadPDF() {
+  const url = "/pdf/swe/batch-45/srs.pdf"; 
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = "Software-Requirments-Analysis-Mid.pdf";
+  link.click();
+}
 
     function toggleFullscreen() {
       const pdf = document.querySelector('.pdf-embed-wrapper');

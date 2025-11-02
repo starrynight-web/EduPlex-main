@@ -380,14 +380,12 @@
     <script src="js/main.js"></script>
     <script>
     function downloadPDF() {
-      const url = "pdf/bns_sug.pdf";
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = "Mathematic-II-(SWE)-Mid.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
+  const url = "/pdf/swe/batch-46/eng.pdf"; 
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = "English-Mid.pdf";
+  link.click();
+}
 
     function toggleFullscreen() {
       const pdf = document.querySelector('.pdf-embed-wrapper');

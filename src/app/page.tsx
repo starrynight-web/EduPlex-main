@@ -99,7 +99,7 @@ export default function Home() {
      {
       image: '/images/tafrin2.webp',
       audio: 'audio_1.mp3',
-      text: 'As fellow developers and students, we\'re committed to maintaining Eduplex as a free, ad-free platform - because education should be accessible, not monetized.',
+      text: 'Every feature we build is crafted with a single goal: to empower your learning and unlock your full potential.',
       name: 'Eduplex',
       jobtitle: 'Your Platefrom',
     },
@@ -131,6 +131,14 @@ export default function Home() {
       name: 'Nabila Rahman Rodela',
       jobtitle: 'SWE Batch 46',
     },
+    {
+      image: '/images/gr1.webp',
+      audio: 'audio_5.mp3',
+      text: 'Every algorithm we design is focused on clearing your path to academic excellence and personal growth.',
+      name: 'Golam Rasul',
+      jobtitle: 'Chairperson of UNLEFT',
+    },
+  
     {
       image: '/images/eashan.webp',
       audio: 'audio_5.mp3',
